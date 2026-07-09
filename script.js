@@ -253,3 +253,4 @@ humo.classList.remove("humo");
 },700);
 
 }
+  
