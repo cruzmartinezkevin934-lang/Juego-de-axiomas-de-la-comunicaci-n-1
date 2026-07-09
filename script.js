@@ -59,6 +59,28 @@ actualizarHUD();
 
 function actualizarHUD(){
 
+let barraJugador=document.getElementById("vidaJugadorBarra");
+
+let barraEnemigo=document.getElementById("vidaEnemigoBarra");
+
+barraJugador.style.width=(vidaJugador/3*100)+"%";
+
+barraEnemigo.style.width=(vidaEnemigo/5*100)+"%";
+
+rondaTexto.innerHTML="RONDA "+ronda;
+
+if(turno=="ataque"){
+
+turnoTexto.innerHTML="🟢 TU TURNO DE ATAQUE";
+
+}else{
+
+turnoTexto.innerHTML="🔴 TURNO DE DEFENSA";
+
+}
+
+}
+
 vidaJ.innerHTML="❤️".repeat(vidaJugador);
 
 vidaE.innerHTML="❤️".repeat(vidaEnemigo);
