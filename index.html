@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Batalla de Patos | Axiomas de la Comunicación</title>
+<title>Batalla de Patos - Axiomas de la Comunicación</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<div id="pantallaInicio">
+<div id="inicio" class="pantalla">
 
 <h1>🦆 BATALLA DE PATOS 🦆</h1>
 
 <h2>Axiomas de la Comunicación</h2>
 
-<button id="jugar">
+<p>
+Responde correctamente para atacar o defenderte.
+</p>
 
+<button id="btnJugar">
 JUGAR
-
 </button>
 
 </div>
-
 
 <div id="juego" class="oculto">
 
@@ -36,29 +33,35 @@ JUGAR
 
 <div class="vidas">
 
-Jugador
+<h3>TÚ</h3>
 
-<div class="barraVida">
+<div class="barra">
 
-<div id="vidaJugadorBarra"></div>
-
-</div>
+<div id="vidaJugador"></div>
 
 </div>
 
-<div id="ronda">
+</div>
 
-RONDA 1
+<div class="centro">
+
+<h2 id="estado">
+Tu turno de ataque
+</h2>
+
+<h3 id="ronda">
+Ronda 1
+</h3>
 
 </div>
 
 <div class="vidas">
 
-Enemigo
+<h3>ENEMIGO</h3>
 
-<div class="barraVida">
+<div class="barra">
 
-<div id="vidaEnemigoBarra"></div>
+<div id="vidaEnemigo"></div>
 
 </div>
 
@@ -66,16 +69,11 @@ Enemigo
 
 </header>
 
+<main>
 
+<div class="campo">
 
-<div id="nubes"></div>
-<div id="arbol1"></div>
-<div id="arbol2"></div>
-<div id="suelo"></div>
-
-<div id="jugador">
-
-<div class="pato jugadorPato">
+<div id="jugador" class="pato izquierda">
 
 <div class="cuerpo"></div>
 
@@ -85,33 +83,13 @@ Enemigo
 
 <div class="pico"></div>
 
-</div>
-
-<div class="arma">
-
-🔫
+<div class="pistola"></div>
 
 </div>
-
-</div>
-
-
 
 <div id="bala"></div>
 
-<div id="humo"></div>
-
-
-
-<div id="enemigo">
-
-<div class="arma">
-
-🔫
-
-</div>
-
-<div class="pato enemigoPato">
+<div id="enemigo" class="pato derecha">
 
 <div class="cuerpo"></div>
 
@@ -121,80 +99,56 @@ Enemigo
 
 <div class="pico"></div>
 
-</div>
+<div class="pistola"></div>
 
 </div>
 
 </div>
 
-<div id="turno">
+<div class="panelPregunta">
 
-TU TURNO
+<h2 id="pregunta"></h2>
 
-</div>
-
-<div id="pregunta">
-
-</div>
-
-<div id="respuestas">
+<button class="respuesta" id="r0"></button>
 
 <button class="respuesta" id="r1"></button>
 
 <button class="respuesta" id="r2"></button>
 
-<button class="respuesta" id="r3"></button>
+</div>
+
+</main>
 
 </div>
 
-<div id="mensaje">
+<div id="victoria" class="pantalla oculto">
 
-</div>
+<h1>🏆</h1>
 
-</div>
+<h2>¡GANASTE!</h2>
 
-
-<div id="victoria" class="oculto">
-
-<h1>
-
-🏆
-
-</h1>
-
-<h2>
-
-¡GANASTE!
-
-</h2>
+<p>
+Has derrotado al pato enemigo.
+</p>
 
 <button onclick="location.reload()">
-
-Jugar otra vez
-
+Volver a jugar
 </button>
 
 </div>
 
+<div id="derrota" class="pantalla oculto">
 
-<div id="derrota" class="oculto">
+<h1>💀</h1>
 
-<h1>
+<h2>PERDISTE</h2>
 
-💀
-
-</h1>
-
-<h2>
-
-PERDISTE
-
-</h2>
+<p>
+El pato enemigo ganó la batalla.
+</p>
 
 <button onclick="location.reload()">
-
 Intentar otra vez
-
 </button>
 
 </div>
