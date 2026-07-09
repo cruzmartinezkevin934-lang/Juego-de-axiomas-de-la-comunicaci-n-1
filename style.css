@@ -1,3 +1,7 @@
+/*==================================
+ BATALLA DE PATOS
+===================================*/
+
 *{
 margin:0;
 padding:0;
@@ -7,31 +11,30 @@ font-family:Arial,Helvetica,sans-serif;
 
 body{
 
-background:linear-gradient(#7fd3ff,#7ec850);
+height:100vh;
 
 overflow:hidden;
 
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
+background:linear-gradient(#74c8ff,#b8ecff 45%,#65b84d 46%,#57a73d);
 
 }
 
 .oculto{
 
-display:none;
+display:none!important;
 
 }
 
-#pantallaInicio,
-#victoria,
-#derrota{
+/*==================================
+PANTALLAS
+===================================*/
+
+.pantalla{
+
+position:absolute;
 
 width:100%;
+
 height:100%;
 
 display:flex;
@@ -42,25 +45,37 @@ justify-content:center;
 
 align-items:center;
 
-background:linear-gradient(#64b5f6,#81c784);
+background:linear-gradient(#5ab7ff,#9be65d);
 
 }
 
-#pantallaInicio h1{
+.pantalla h1{
 
-font-size:55px;
+font-size:65px;
+
+color:white;
+
+text-shadow:4px 4px #222;
+
+margin-bottom:20px;
+
+}
+
+.pantalla h2{
+
+font-size:35px;
 
 margin-bottom:20px;
 
 color:white;
 
-text-shadow:3px 3px black;
-
 }
 
-#pantallaInicio h2{
+.pantalla p{
 
-margin-bottom:30px;
+font-size:20px;
+
+margin-bottom:35px;
 
 color:white;
 
@@ -68,19 +83,19 @@ color:white;
 
 button{
 
-padding:15px 35px;
-
-font-size:20px;
+padding:18px 40px;
 
 border:none;
 
-border-radius:15px;
+border-radius:14px;
+
+background:#ffc107;
+
+font-size:22px;
 
 cursor:pointer;
 
-background:#ffca28;
-
-transition:.3s;
+transition:.25s;
 
 }
 
@@ -91,6 +106,10 @@ transform:scale(1.08);
 background:#ffd54f;
 
 }
+
+/*==================================
+JUEGO
+===================================*/
 
 #juego{
 
@@ -104,27 +123,15 @@ flex-direction:column;
 
 }
 
+/*==================================
+HEADER
+===================================*/
+
 header{
 
-height:80px;
+height:90px;
 
-background:#263238;
-
-color:white;
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-font-size:25px;
-
-}
-
-#campo{
-
-flex:1;
+background:#1f2937;
 
 display:flex;
 
@@ -132,452 +139,147 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:60px;
-
-position:relative;
-
-background:linear-gradient(#8dd7ff,#9be36e);
-
-}
-
-#jugador,
-#enemigo{
-
-display:flex;
-
-align-items:center;
-
-gap:20px;
-
-}
-
-.pato{
-
-font-size:120px;
-
-transition:.3s;
-
-}
-
-.arma{
-
-font-size:60px;
-
-transition:.3s;
-
-}
-
-#bala{
-
-position:absolute;
-
-font-size:50px;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%);
-
-opacity:0;
-
-}
-
-#turno{
-
-text-align:center;
-
-font-size:35px;
-
-padding:15px;
-
-background:#37474f;
+padding:15px 35px;
 
 color:white;
 
+box-shadow:0 3px 8px rgba(0,0,0,.3);
+
 }
 
-#pregunta{
+.vidas{
 
-padding:25px;
+width:220px;
 
-font-size:28px;
+}
+
+.vidas h3{
+
+margin-bottom:8px;
 
 text-align:center;
 
-min-height:120px;
+}
 
-background:white;
+.barra{
+
+height:25px;
+
+background:#444;
+
+border-radius:30px;
+
+overflow:hidden;
+
+border:2px solid white;
 
 }
 
-#respuestas{
+#vidaJugador{
+
+height:100%;
+
+width:100%;
+
+background:#00e676;
+
+transition:.4s;
+
+}
+
+#vidaEnemigo{
+
+height:100%;
+
+width:100%;
+
+background:#ff5252;
+
+transition:.4s;
+
+}
+
+.centro{
+
+text-align:center;
+
+}
+
+#estado{
+
+font-size:28px;
+
+}
+
+#ronda{
+
+margin-top:8px;
+
+}
+
+/*==================================
+CAMPO
+===================================*/
+
+main{
+
+flex:1;
 
 display:flex;
 
 flex-direction:column;
 
-gap:15px;
-
-padding:20px;
-
-background:#eceff1;
-
 }
 
-.respuesta{
-
-font-size:22px;
-
-padding:18px;
-
-}
-
-#mensaje{
-
-height:70px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
-
-font-weight:bold;
-
-background:white;
-
-color:#1565c0;
-
-}
-
-#victoria h1,
-#derrota h1{
-
-font-size:150px;
-
-}
-
-#victoria h2,
-#derrota h2{
-
-font-size:50px;
-
-margin:20px;
-
-}
-
-.disparo{
-
-animation:retroceso .25s alternate 3;
-
-}
-
-@keyframes retroceso{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-100%{
-
-transform:translateX(-25px);
-
-}
-
-}
-
-.golpe{
-
-animation:golpe .5s;
-
-}
-
-@keyframes golpe{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-25%{
-
-transform:translateX(-15px);
-
-}
-
-50%{
-
-transform:translateX(15px);
-
-}
-
-75%{
-
-transform:translateX(-15px);
-
-}
-
-100%{
-
-transform:translateX(0);
-
-}
-
-}
-
-@keyframes bala{
-
-0%{
-
-left:25%;
-
-opacity:1;
-
-}
-
-100%{
-
-left:75%;
-
-opacity:1;
-
-}
-
-}
-
-.animarBala{
-
-animation:bala .6s linear;
-
-}
-.pato{
+.campo{
 
 position:relative;
 
-width:140px;
-
-height:120px;
-
-}
-
-.cuerpo{
-
-position:absolute;
-
-width:90px;
-
-height:70px;
-
-background:#ffd54f;
-
-border-radius:50%;
-
-left:25px;
-
-top:40px;
-
-}
-
-.cabeza{
-
-position:absolute;
-
-width:55px;
-
-height:55px;
-
-background:#ffd54f;
-
-border-radius:50%;
-
-left:75px;
-
-top:10px;
-
-}
-
-.ojo{
-
-position:absolute;
-
-width:8px;
-
-height:8px;
-
-background:black;
-
-border-radius:50%;
-
-left:112px;
-
-top:30px;
-
-}
-
-.pico{
-
-position:absolute;
-
-width:24px;
-
-height:12px;
-
-background:orange;
-
-left:126px;
-
-top:38px;
-
-clip-path:polygon(0 50%,100% 0,100% 100%);
-
-}
-
-.enemigoPato{
-
-transform:scaleX(-1);
-
-}
-#bala{
-
-position:absolute;
-
-width:22px;
-
-height:22px;
-
-background:gold;
-
-border-radius:50%;
-
-left:160px;
-
-top:52%;
-
-opacity:0;
-
-box-shadow:0 0 20px yellow;
-
-}
-
-#humo{
-
-position:absolute;
-
-width:45px;
-
-height:45px;
-
-background:rgba(180,180,180,.7);
-
-border-radius:50%;
-
-left:165px;
-
-top:50%;
-
-opacity:0;
-
-filter:blur(4px);
-
-}
-
-.animarBala{
-
-animation:disparo 0.6s linear forwards;
-
-}
-
-@keyframes disparo{
-
-0%{
-
-left:18%;
-
-opacity:1;
-
-}
-
-100%{
-
-left:78%;
-
-opacity:1;
-
-}
-
-}
-
-.humo{
-
-animation:humo .7s;
-
-}
-
-@keyframes humo{
-
-0%{
-
-opacity:1;
-
-transform:scale(.3);
-
-}
-
-100%{
-
-opacity:0;
-
-transform:scale(2);
-
-}
-
-}
-#campo{
+flex:1;
 
 overflow:hidden;
 
-position:relative;
+display:flex;
 
-background:linear-gradient(#87ceeb,#8ed66f);
+justify-content:space-between;
 
-}
+align-items:flex-end;
 
-#suelo{
+padding:70px;
 
-position:absolute;
-
-bottom:0;
-
-left:0;
-
-width:100%;
-
-height:90px;
-
-background:#3e8f2d;
+background:
+linear-gradient(
+#7fd6ff 0%,
+#7fd6ff 55%,
+#67bb4b 56%,
+#4b9b39 100%
+);
 
 }
 
-#nubes{
+/* NUBES */
+
+.campo::before{
+
+content:"";
 
 position:absolute;
 
 width:300%;
 
-height:140px;
+height:180px;
+
+left:0;
+
+top:0;
 
 background:
-radial-gradient(circle,#fff 35%,transparent 36%) 50px 20px/120px 70px repeat-x;
+radial-gradient(circle,#fff 35%,transparent 36%)
+0 0/180px 90px repeat-x;
+
+opacity:.7;
 
 animation:nubes 40s linear infinite;
-
-opacity:.8;
 
 }
 
@@ -597,90 +299,612 @@ transform:translateX(-33%);
 
 }
 
-#arbol1,
-#arbol2{
+/* PASTO */
 
-position:absolute;
-
-bottom:90px;
-
-width:35px;
-
-height:170px;
-
-background:#6d4c41;
-
-}
-
-#arbol1{
-
-left:12%;
-
-}
-
-#arbol2{
-
-right:12%;
-
-}
-
-#arbol1::after,
-#arbol2::after{
+.campo::after{
 
 content:"";
 
 position:absolute;
 
-left:-35px;
+left:0;
 
-top:-45px;
+bottom:0;
 
-width:100px;
+width:100%;
 
-height:100px;
+height:90px;
 
-background:#2e7d32;
-
-border-radius:50%;
+background:#388e3c;
 
 }
+/*==================================
+PATOS
+===================================*/
 
-.barraVida{
+.pato{
+
+position:relative;
 
 width:180px;
 
-height:28px;
+height:180px;
 
-border:3px solid white;
+transition:.35s;
 
-border-radius:15px;
-
-overflow:hidden;
-
-background:#555;
+z-index:5;
 
 }
 
-#vidaJugadorBarra{
+.izquierda{
 
-height:100%;
+transform:scaleX(1);
+
+}
+
+.derecha{
+
+transform:scaleX(-1);
+
+}
+
+.cuerpo{
+
+position:absolute;
+
+width:110px;
+
+height:85px;
+
+background:#FFD54F;
+
+border-radius:50%;
+
+left:30px;
+
+top:60px;
+
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+
+}
+
+.cabeza{
+
+position:absolute;
+
+width:70px;
+
+height:70px;
+
+background:#FFD54F;
+
+border-radius:50%;
+
+left:95px;
+
+top:20px;
+
+}
+
+.ojo{
+
+position:absolute;
+
+width:10px;
+
+height:10px;
+
+background:black;
+
+border-radius:50%;
+
+left:132px;
+
+top:42px;
+
+}
+
+.pico{
+
+position:absolute;
+
+width:28px;
+
+height:18px;
+
+background:#ff9800;
+
+left:150px;
+
+top:48px;
+
+clip-path:polygon(0 50%,100% 0,100% 100%);
+
+}
+
+.pistola{
+
+position:absolute;
+
+width:55px;
+
+height:12px;
+
+background:#424242;
+
+left:140px;
+
+top:95px;
+
+border-radius:5px;
+
+}
+
+.pistola::after{
+
+content:"";
+
+position:absolute;
+
+right:-10px;
+
+top:2px;
+
+width:12px;
+
+height:8px;
+
+background:#212121;
+
+border-radius:3px;
+
+}
+
+/*==================================
+BALA
+===================================*/
+
+#bala{
+
+position:absolute;
+
+width:20px;
+
+height:20px;
+
+border-radius:50%;
+
+background:gold;
+
+box-shadow:0 0 15px yellow;
+
+left:180px;
+
+top:55%;
+
+opacity:0;
+
+z-index:20;
+
+}
+
+/*==================================
+DISPARO
+===================================*/
+
+.disparar{
+
+animation:retroceso .18s alternate 4;
+
+}
+
+@keyframes retroceso{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-14px);
+
+}
+
+}
+
+.animarBala{
+
+animation:bala 0.65s linear forwards;
+
+}
+
+@keyframes bala{
+
+0%{
+
+left:22%;
+
+opacity:1;
+
+}
+
+100%{
+
+left:78%;
+
+opacity:1;
+
+}
+
+}
+
+.golpe{
+
+animation:golpe .4s;
+
+}
+
+@keyframes golpe{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+20%{
+
+transform:translateX(-10px);
+
+}
+
+40%{
+
+transform:translateX(10px);
+
+}
+
+60%{
+
+transform:translateX(-10px);
+
+}
+
+80%{
+
+transform:translateX(10px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==================================
+HUMO
+===================================*/
+
+#humo{
+
+position:absolute;
+
+width:40px;
+
+height:40px;
+
+background:rgba(180,180,180,.8);
+
+border-radius:50%;
+
+opacity:0;
+
+left:180px;
+
+top:52%;
+
+filter:blur(5px);
+
+z-index:30;
+
+}
+
+.humo{
+
+animation:humo .6s;
+
+}
+
+@keyframes humo{
+
+0%{
+
+opacity:1;
+
+transform:scale(.2);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:scale(2);
+
+}
+
+}
+
+/*==================================
+RESPIRACIÓN
+===================================*/
+
+.pato{
+
+animation:respirar 2.2s infinite ease-in-out;
+
+}
+
+@keyframes respirar{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-5px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+/*==================================
+PANEL DE PREGUNTAS
+===================================*/
+
+.panelPregunta{
 
 width:100%;
 
-background:#00e676;
+background:#ffffffee;
 
-transition:.4s;
+padding:25px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:18px;
+
+box-shadow:0 -4px 12px rgba(0,0,0,.25);
+
+}
+
+#pregunta{
+
+font-size:28px;
+
+font-weight:bold;
+
+text-align:center;
+
+color:#222;
+
+min-height:80px;
+
+max-width:900px;
 
 }
 
-#vidaEnemigoBarra{
+.respuesta{
 
-height:100%;
+width:85%;
 
-width:100%;
+max-width:700px;
 
-background:#ff5252;
+padding:18px;
 
-transition:.4s;
+font-size:22px;
+
+border:none;
+
+border-radius:14px;
+
+background:#2196F3;
+
+color:white;
+
+cursor:pointer;
+
+transition:.25s;
 
 }
+
+.respuesta:hover{
+
+background:#1976D2;
+
+transform:scale(1.03);
+
+}
+
+/*==================================
+VICTORIA Y DERROTA
+===================================*/
+
+#victoria,
+#derrota{
+
+animation:aparecer .6s;
+
+}
+
+@keyframes aparecer{
+
+0%{
+
+opacity:0;
+
+transform:scale(.6);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+#victoria h1,
+#derrota h1{
+
+font-size:140px;
+
+margin-bottom:20px;
+
+}
+
+#victoria button,
+#derrota button{
+
+margin-top:25px;
+
+}
+
+/*==================================
+SACUDIDA DE PANTALLA
+===================================*/
+
+.sacudir{
+
+animation:sacudir .35s;
+
+}
+
+@keyframes sacudir{
+
+0%{
+
+transform:translate(0);
+
+}
+
+20%{
+
+transform:translate(-8px,4px);
+
+}
+
+40%{
+
+transform:translate(8px,-4px);
+
+}
+
+60%{
+
+transform:translate(-6px,2px);
+
+}
+
+80%{
+
+transform:translate(6px,-2px);
+
+}
+
+100%{
+
+transform:translate(0);
+
+}
+
+}
+
+/*==================================
+RESPONSIVE
+===================================*/
+
+@media(max-width:900px){
+
+header{
+
+flex-direction:column;
+
+height:auto;
+
+padding:15px;
+
+gap:12px;
+
+}
+
+.campo{
+
+padding:20px;
+
+}
+
+.pato{
+
+transform:scale(.8);
+
+}
+
+#pregunta{
+
+font-size:22px;
+
+}
+
+.respuesta{
+
+width:95%;
+
+font-size:18px;
+
+}
+
+.pantalla h1{
+
+font-size:42px;
+
+}
+
+.pantalla h2{
+
+font-size:26px;
+
+}
+
+button{
+
+font-size:18px;
+
+padding:14px 28px;
+
+}
+
+}
+
+/*==================================
+FIN DEL CSS
+===================================*/
+  }
