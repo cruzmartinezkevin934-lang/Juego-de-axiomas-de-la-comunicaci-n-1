@@ -91,6 +91,7 @@ animacionDisparo();
 }else{
 
 mensaje.innerHTML="🔫 ¡Click! La pistola se atascó.";
+  humoPistola();
 
 }
 
@@ -99,6 +100,7 @@ mensaje.innerHTML="🔫 ¡Click! La pistola se atascó.";
 if(correcta){
 
 mensaje.innerHTML="🛡️ ¡Te defendiste! La pistola enemiga falló.";
+  humoPistola();
 
 }else{
 
@@ -124,6 +126,34 @@ if(indicePregunta >= preguntas.length){
 
 indicePregunta
 function animacionDisparo(){
+
+const bala=document.getElementById("bala");
+
+const jugador=document.getElementById("jugador");
+
+const enemigo=document.getElementById("enemigo");
+
+bala.classList.add("animarBala");
+
+jugador.classList.add("disparo");
+
+setTimeout(()=>{
+
+enemigo.classList.add("golpe");
+
+},550);
+
+setTimeout(()=>{
+
+bala.classList.remove("animarBala");
+
+enemigo.classList.remove("golpe");
+
+jugador.classList.remove("disparo");
+
+},900);
+
+  }
 
 const bala = document.getElementById("bala");
 
@@ -188,3 +218,16 @@ victoria.classList.add("oculto");
 derrota.classList.add("oculto");
 
 };
+function humoPistola(){
+
+const humo=document.getElementById("humo");
+
+humo.classList.add("humo");
+
+setTimeout(()=>{
+
+humo.classList.remove("humo");
+
+},700);
+
+}
